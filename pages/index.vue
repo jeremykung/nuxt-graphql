@@ -1,5 +1,11 @@
 <script setup lang="ts">
 // const route = useRoute()
+const { data: posts } = await useAsyncData('posts', () =>
+  queryContent('/blog')
+    .sort({ data: 1 })
+    .limit(3)
+    .find()
+)
 </script>
 
 <template>
@@ -19,5 +25,8 @@
 
   <section>
     <h2 class="text-3xl font-bold mt-8">Latest Blog Posts</h2>
+    <div class="class grid md:grid-cols-3 pt-8 gap-0">
+      <Post :posts="posts" />
+    </div>
   </section>
 </template>

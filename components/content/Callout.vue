@@ -17,7 +17,7 @@ const props = defineProps({
           </svg></div>
         <div>
           <p class="font-bold">{{ props.title }}</p>
-          <p class="text-sm">
+          <p class="text-sm"> 
             <slot />
           </p>
         </div>
